@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Isaac Mwendwa | Electrical & Telecom Engineer</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2ff 100%);
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e8f0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar - light glass */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 16px 0;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      gap: 2.8rem;
+      flex-wrap: wrap;
+    }
+    .nav-container a {
+      color: #334155;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      position: relative;
+      letter-spacing: 0.3px;
+    }
+    .nav-container a:hover, .nav-container a.active {
+      color: #10b981;
+    }
+    .nav-container a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #10b981, #3b82f6);
+      transition: width 0.25s;
+      border-radius: 4px;
+    }
+    .nav-container a:hover::after, .nav-container a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle at 30% 40%, rgba(16,185,129,0.08), rgba(59,130,246,0.05), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+    }
+    .hero-text {
+      flex: 1.2;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #10b981;
+      border: 1px solid rgba(16,185,129,0.3);
+      margin-bottom: 24px;
+    }
+    .hero-text h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0f172a 0%, #10b981 40%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero-text .title-highlight {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 550px;
+      margin: 20px 0 32px;
+      line-height: 1.6;
+    }
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(95deg, #10b981, #3b82f6);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(16,185,129,0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(59,130,246,0.4);
+      background: linear-gradient(95deg, #059669, #2563eb);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #10b981;
+      color: #10b981;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: rgba(16,185,129,0.08);
+      transform: translateY(-2px);
+      border-color: #059669;
+      color: #059669;
+    }
+    .hero-avatar {
+      flex: 0.6;
+      display: flex;
+      justify-content: center;
+    }
+    .avatar-circle {
+      width: 240px;
+      height: 240px;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #10b981;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1), 0 0 0 8px rgba(59,130,246,0.08);
+    }
+    .avatar-initials {
+      font-size: 5rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Section styling */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 56px;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(135deg, #0f172a, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #3b82f6);
+      border-radius: 4px;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      padding: 32px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(16, 185, 129, 0.5);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      background: white;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .project-icon {
+      font-size: 2.6rem;
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .tech-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 8px;
+      margin-top: 14px;
+      color: #047857;
+    }
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .skill-badge {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 10px 24px;
+      border-radius: 60px;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #1f2937;
+    }
+    .skill-badge i {
+      color: #10b981;
+      font-size: 1.1rem;
+    }
+    .skill-badge:hover {
+      background: rgba(16,185,129,0.12);
+      transform: scale(1.02);
+      border-color: #10b981;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+    }
+    .info-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px;
+      border: 1px solid rgba(16,185,129,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(59,130,246,0.05));
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #10b981;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 14px 20px;
+      margin-bottom: 22px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px rgba(16,185,129,0.2);
+    }
+    .footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 48px 20px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 40px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .social-icons a {
+      color: #475569;
+      font-size: 1.7rem;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #10b981;
+      transform: translateY(-5px);
+    }
+    @media (max-width: 800px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .section-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .section-title {
+        display: block;
+        text-align: center;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-container {
+        gap: 1.5rem;
+      }
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+    }
+    .back2top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(145deg, #10b981, #3b82f6);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      z-index: 99;
+    }
+    .back2top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <span class="hero-badge"><i class="fas fa-bolt"></i> Open for collaboration</span>
+      <h1>Isaac Duncan Mwendwa</h1>
+      <div class="title-highlight">Electrical & Telecommunications Engineer</div>
+      <p>Specialist in <strong>Optical Fibre, DC Systems & Smart Automation</strong>. I build intelligent systems that merge telecom infrastructure with cutting-edge embedded tech.</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn-primary"><i class="fas fa-comment-dots"></i> Let's talk</a>
+        <a href="#" class="btn-outline" id="resumeMock"><i class="fas fa-scroll"></i> Resume</a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-circle">
+        <div class="avatar-initials">IM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="card" style="padding: 40px;">
+      <p style="font-size: 1.1rem; margin-bottom: 24px;">I'm a final-year Electrical Engineering student (Telecom major) with a passion for optical fibre networks, DC power automation, and ESP32-driven IoT. I enjoy turning complex problems into streamlined solutions that merge hardware robustness with software intelligence.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 28px;">
+        <div><i class="fas fa-university" style="color:#10b981;"></i> <strong>Education:</strong> BSc Electrical & Telecom Engineering · 2022–2026</div>
+        <div><i class="fas fa-map-pin" style="color:#10b981;"></i> <strong>Location:</strong> Nairobi, Kenya</div>
+        <div><i class="fas fa-microchip" style="color:#10b981;"></i> <strong>Core focus:</strong> Optical Comms · DC Microgrids · IIoT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="project-icon"><i class="fas fa-charging-station"></i></div>
+        <h3>Smart Energy Meter</h3>
+        <p>ESP32-based power monitor with real-time data logging to Google Sheets, load control via L298N motor driver, and consumption analytics — enabling smarter energy management.</p>
+        <div>
+          <span class="tech-tag">ESP32</span>
+          <span class="tech-tag">Google Sheets API</span>
+          <span class="tech-tag">L298N</span>
+          <span class="tech-tag">Arduino</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="project-icon"><i class="fas fa-wind"></i></div>
+        <h3>Smoke Zone Monitoring System</h3>
+        <p>Automated safety solution with MQ-135 gas sensor, servo-controlled emergency door, buzzer alerts, and LED indicators. Designed for rapid hazard response in industrial zones.</p>
+        <div>
+          <span class="tech-tag">MQ-135</span>
+          <span class="tech-tag">Servo Motor</span>
+          <span class="tech-tag">Buzzer</span>
+          <span class="tech-tag">Arduino UNO</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="project-icon"><i class="fas fa-sliders-h"></i></div>
+        <h3>DC Motor Control System</h3>
+        <p>MATLAB/Simulink simulation with PID tuning, plus microprocessor implementation for speed/position control. Features encoder feedback and real-time performance monitoring.</p>
+        <div>
+          <span class="tech-tag">MATLAB</span>
+          <span class="tech-tag">PID Control</span>
+          <span class="tech-tag">AVR/ARM</span>
+          <span class="tech-tag">Simulink</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Technical Arsenal</h2>
+    <div class="skills-wrapper">
+      <span class="skill-badge"><i class="fas fa-fiber"></i> Optical Fibre Communication</span>
+      <span class="skill-badge"><i class="fas fa-battery-full"></i> Transport DC Systems</span>
+      <span class="skill-badge"><i class="fab fa-raspberry-pi"></i> Embedded (ESP32/Arduino)</span>
+      <span class="skill-badge"><i class="fab fa-js"></i> HTML/CSS/JS</span>
+      <span class="skill-badge"><i class="fas fa-chart-line"></i> MATLAB & Simulink</span>
+      <span class="skill-badge"><i class="fas fa-network-wired"></i> Fiber Optics Testing (OTDR)</span>
+      <span class="skill-badge"><i class="fas fa-robot"></i> IoT & Automation</span>
+      <span class="skill-badge"><i class="fas fa-plug"></i> Power Systems Basics</span>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="info-card">
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>Email</strong><br><a href="mailto:isaac.mwendwa@example.com" style="color:#1f2937; text-decoration:none;">isaac.mwendwa@example.com</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><strong>Phone / WhatsApp</strong><br><span>+254 710 197342</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div><strong>LinkedIn</strong><br><a href="#" style="color:#1f2937; text-decoration:none;">linkedin.com/in/isaac-mwendwa</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <div><strong>GitHub</strong><br><a href="#" style="color:#1f2937; text-decoration:none;">github.com/isaacmwendwa</a></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3 style="margin-bottom: 24px; font-size: 1.7rem;">Send a Message</h3>
+        <form id="contactForm" class="contact-form">
+          <input type="text" id="nameInput" placeholder="Full name" required>
+          <input type="email" id="emailInput" placeholder="Email address" required>
+          <textarea rows="4" id="msgInput" placeholder="I'd love to hear about your project or opportunity..."></textarea>
+          <button type="submit" class="btn-primary" style="border: none; width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+        <p style="font-size: 0.85rem; margin-top: 20px; color:#4b5563;"><i class="fas fa-lock"></i> I'll reply within 24 hours — let's innovate together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="social-icons">
+    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>© 2026 Isaac Duncan Mwendwa — Electrical & Telecommunications Engineer. Built with 💚💙 & optical precision.</p>
+</footer>
+
+<div class="back2top" id="back2topBtn">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  // active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function updateActiveLink() {
+    let current = '';
+    const scrollPos = window.scrollY + 180;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href').substring(1);
+      if (href === current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  window.addEventListener('load', updateActiveLink);
+
+  // smooth scroll for nav clicks
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // home specific smooth to top
+  document.querySelector('.nav-link[href="#home"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // back to top button
+  const backBtn = document.getElementById('back2topBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) backBtn.classList.add('show');
+    else backBtn.classList.remove('show');
+  });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // contact form handler
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      if (name && email) {
+        alert(`✨ Thanks ${name}, your message was sent! I'll get back to you soon. (Demo portfolio — real contact info available)`);
+        form.reset();
+      } else {
+        alert('Please fill in both name and email.');
+      }
+    });
+  }
+
+  // resume demo
+  const resumeBtn = document.getElementById('resumeMock');
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📄 Isaac's resume is available upon request. Feel free to email or use the contact form!");
+    });
+  }
+</script>
+</body>
+</html>
